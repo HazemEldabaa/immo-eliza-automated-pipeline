@@ -1,0 +1,9 @@
+apache-airflow 
+BeautifulSoup4 
+pandas 
+asyncio 
+cloudscraper 
+numpy
+joblib
+scikit-learn
+xgboost
