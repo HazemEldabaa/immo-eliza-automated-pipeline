@@ -9,7 +9,7 @@ import train_all as train
 from version_utils import read_counter, increment_counter
 def should_run_train():
     
-    if datetime.now().day == 16:
+    if datetime.now().day == 17:
         return 'run_train_task'
     else:
         return 'skip_train_task'
@@ -42,7 +42,7 @@ def run_async(ti):
 async def scrape_async(version_number):
     crawler = ImmoCrawler()
     #version_number = increment_counter(counter_path)
-    await crawler.get_properties()
+    await crawler.get_properties(1)
     crawler.to_csv(f"/opt/airflow/src/final_raw_v{version_number}")
 
 def run_train():
