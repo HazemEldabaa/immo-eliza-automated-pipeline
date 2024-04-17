@@ -193,3 +193,4 @@ def clean_data(input):
     version_number = read_counter("/opt/airflow/src/counter_data.txt")
     # save cleaned data
     df.to_csv(f"/opt/airflow/src/final_cleaned_v{version_number}.csv", index=False)
+    print(f"Saved cleaned data to /opt/airflow/src/final_cleaned_v{version_number}.csv")

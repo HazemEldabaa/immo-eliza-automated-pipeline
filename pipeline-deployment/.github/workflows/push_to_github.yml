@@ -1,0 +1,36 @@
+name: Push Files to GitHub
+
+on:
+  push:
+    paths: 
+    - /opt/airflow/myrepo/src/
+    branches:
+      - main
+jobs:
+  push_to_github:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v1
+
+    - name: Copy files from Airflow
+      run: |
+        cp /opt/airflow/myrepo/src/* .
+
+    - name: Configure git
+      run: |
+        git config --global user.email "eldabaahazem@gmail.com"
+        git config --global user.name "Hazem El-Dabaa"
+
+    - name: Add and commit files
+      run: |
+        git add .
+        git commit -m "Add files with GitHub actions"
+    
+    - name: Push changes to GitHub
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.API_TOKEN }}
+        branch: main
+        directory: src

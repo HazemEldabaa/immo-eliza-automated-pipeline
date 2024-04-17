@@ -9,7 +9,7 @@ import train_all as train
 from version_utils import read_counter, increment_counter
 def should_run_train():
     
-    if datetime.now().day == 12:
+    if datetime.now().day == 16:
         return 'run_train_task'
     else:
         return 'skip_train_task'
@@ -27,7 +27,7 @@ dag = DAG(
     'my_scraper',
     default_args=default_args,
     description='Immo Eliza Scraper',
-    schedule_interval=timedelta(days=1),
+    schedule_interval=timedelta(days=60),
     start_date=datetime(2024, 1, 1),
     catchup=False,
 )

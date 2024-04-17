@@ -14,6 +14,11 @@ USER astro
 RUN pip install cloudscraper
 RUN pip install -r /requirements.txt
 USER root
+RUN mkdir /opt/airflow/myrepo
+WORKDIR /opt/airflow/myrepo
+RUN chmod -R 777 /opt/airflow/myrepo
+
+RUN git clone --depth 1 https://github.com/HazemEldabaa/immo-eliza-deployment.git .
 
 
 WORKDIR /

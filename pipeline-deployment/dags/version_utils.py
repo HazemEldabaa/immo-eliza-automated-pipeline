@@ -6,7 +6,6 @@ def read_counter(file_path):
     except FileNotFoundError:
         return 0
     except ValueError:
-        # Log an error or warning if you encounter unexpected content
         print(f"Warning: Unexpected content in {file_path}. Resetting to 0.")
         return 0
 
